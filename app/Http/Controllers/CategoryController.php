@@ -12,7 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        // retrieve all categories
+        $categories = Category::all();
+
+        return response()->json($categories);
     }
 
     /**

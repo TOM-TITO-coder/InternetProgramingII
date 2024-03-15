@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,8 +58,6 @@ Route::middleware('auth:api')->get('/test', function(){
     return "Test Page";
 });
 
-Route::middleware('auth:api')->post('/categories', function (Request $request) {
-    return "Create 1 categories";
-});
+Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::middleware('auth:api')->post('/category', [CategoryController::class, 'store']);
